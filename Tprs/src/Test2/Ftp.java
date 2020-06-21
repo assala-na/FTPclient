@@ -26,7 +26,7 @@ public class Ftp {
    private String host;
    private int port;
    
-   private BufferedWriter writer, writerData;
+   private BufferedWriter writer;
    private BufferedInputStream readerData;
    private BufferedInputStream reader;
    private String dataIP;
@@ -187,7 +187,7 @@ public class Ftp {
    private void createDataSocket() throws UnknownHostException, IOException{
       socketData = new Socket(dataIP, dataPort);
       readerData = new BufferedInputStream(socketData.getInputStream());
-      writerData = new BufferedWriter(new OutputStreamWriter(socketData.getOutputStream()));
+      new BufferedWriter(new OutputStreamWriter(socketData.getOutputStream()));
    }
    
    /**
